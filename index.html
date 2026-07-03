@@ -1,11 +1,223 @@
-<nav>
-    <h2>🍕 Slice Haven</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slice Haven — Wood-Fired Pizza, Delivered Hot</title>
 
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Pizza</a></li>
-        <li><a href="#">Sides</a></li>
-        <li><a href="#">Order Now</a></li>
-        <li><a href="#">Contact</a></li>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ TOASTS ============ -->
+<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+<!-- ============ NAV ============ -->
+<header class="site-header">
+  <nav class="nav">
+    <a href="#home" class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 2L37 33H3L20 2Z" fill="#E8A33D"/>
+        <circle cx="14" cy="24" r="2.2" fill="#C1440E"/>
+        <circle cx="22" cy="19" r="2" fill="#4C6B3B"/>
+        <circle cx="26" cy="27" r="2.4" fill="#C1440E"/>
+        <circle cx="18" cy="29" r="1.6" fill="#4C6B3B"/>
+      </svg>
+      <span>Slice Haven</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-</nav>
+
+    <div class="nav-actions">
+      <div class="auth-slot" id="authSlot">
+        <button class="btn-ghost" id="openAuthBtn">Sign In</button>
+      </div>
+      <button class="cart-btn" id="openCartBtn" aria-label="Open cart">
+        🧺 <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <span class="stamp">
+      <span>EST. 2020</span>
+      <span>•</span>
+      <span>WOOD FIRED</span>
+      <span>•</span>
+      <span>MUMBAI</span>
+    </span>
+    <h1>Fresh pizza,<br><em>fired &amp; delivered</em><br>in 30 minutes.</h1>
+    <p>18 wood-fired pies, real mozzarella, dough proofed for 24 hours. Pick your slice, drop it in the cart, and we'll handle the rest — GST and all.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" id="heroOrderBtn">Order Now 🍕</button>
+      <a href="#menu" class="btn-outline">View Full Menu</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="images/margherita.jpg" alt="Fresh margherita pizza">
+    <div class="floaty">🔥 25 min avg</div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat"><h2>10K+</h2><p>Happy Customers</p></div>
+  <div class="stat"><h2>18</h2><p>Pizza Varieties</p></div>
+  <div class="stat"><h2>25 min</h2><p>Average Delivery</p></div>
+  <div class="stat"><h2>4.9⭐</h2><p>Average Rating</p></div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section class="menu" id="menu">
+  <h2>Our Menu</h2>
+  <p class="section-sub">18 pizzas, baked fresh to order. Filter, search, and add straight to your cart.</p>
+
+  <div class="menu-controls">
+    <div class="filter-tabs" id="filterTabs">
+      <button class="tab active" data-filter="all">All</button>
+      <button class="tab" data-filter="veg">Veg 🟢</button>
+      <button class="tab" data-filter="nonveg">Non-Veg 🔴</button>
+    </div>
+    <input type="text" class="menu-search" id="menuSearch" placeholder="Search pizzas…">
+  </div>
+
+  <div class="cards" id="menuGrid"></div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <h2>Why Choose Slice Haven?</h2>
+  <div class="features">
+    <div class="feature">
+      <span class="feature-icon">🌿</span>
+      <h3>Fresh Ingredients</h3>
+      <p>Only the freshest vegetables, premium cheese, and handmade dough — nothing frozen, ever.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">🚚</span>
+      <h3>Fast Delivery</h3>
+      <p>Your pizza reaches your doorstep hot and fresh in under 30 minutes, guaranteed.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">⭐</span>
+      <h3>Top Rated</h3>
+      <p>Rated 4.9/5 by thousands of happy pizza lovers across the city.</p>
+    </div>
+  </div>
+
+  <div class="how-it-works">
+    <h3>How It Works</h3>
+    <div class="steps">
+      <div class="step"><span class="step-num">01</span><h4>Pick your pizza</h4><p>Browse 18 options, filter by veg or non-veg, add as many as you like.</p></div>
+      <div class="step"><span class="step-num">02</span><h4>We fire it up</h4><p>Every order goes straight into our wood-fired oven the moment it's placed.</p></div>
+      <div class="step"><span class="step-num">03</span><h4>Hot to your door</h4><p>Tracked delivery, average 25 minutes, packaged to stay hot and crisp.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="reviews" id="reviews">
+  <h2>What Our Customers Say</h2>
+  <div class="review-container" id="reviewGrid"></div>
+
+  <div class="review-form-wrap">
+    <h3>Leave a Review</h3>
+    <form class="review-form" id="reviewForm">
+      <input type="text" id="reviewName" placeholder="Your name" required>
+      <div class="star-input" id="starInput" data-rating="5">
+        <span data-val="1">★</span><span data-val="2">★</span><span data-val="3">★</span><span data-val="4">★</span><span data-val="5">★</span>
+      </div>
+      <textarea id="reviewText" placeholder="Tell us about your order…" required></textarea>
+      <button type="submit" class="btn-primary">Submit Review</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <h3>Visit Slice Haven</h3>
+      <p>📍 Mumbai, India</p>
+      <p>📞 +91 98765 43210</p>
+      <p>📧 slicehaven@gmail.com</p>
+      <p>🕒 Open Daily: 10:00 AM – 11:00 PM</p>
+    </div>
+    <form class="contact-form" id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Write your message…" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <h2>🍕 Slice Haven</h2>
+  <p>Made with ❤️ using HTML, CSS &amp; JavaScript</p>
+  <p>© 2026 Slice Haven. All Rights Reserved.</p>
+</footer>
+
+<button id="topBtn" aria-label="Back to top">⬆</button>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="overlay" id="overlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="ticket-head">
+    <h3>Your Order</h3>
+    <button class="close-btn" id="closeCartBtn">✕</button>
+  </div>
+  <div class="ticket-body" id="cartItems"></div>
+  <div class="ticket-bill" id="cartBill"></div>
+  <button class="btn-primary checkout-btn" id="checkoutBtn">Checkout</button>
+</aside>
+
+<!-- ============ AUTH MODAL ============ -->
+<div class="modal-overlay" id="authOverlay">
+  <div class="modal auth-modal">
+    <button class="close-btn" id="closeAuthBtn">✕</button>
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login">Log In</button>
+      <button class="auth-tab" data-tab="signup">Sign Up</button>
+    </div>
+
+    <form class="auth-form active" id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button type="submit" class="btn-primary">Log In</button>
+    </form>
+
+    <form class="auth-form" id="signupForm">
+      <input type="text" id="signupName" placeholder="Full Name" required>
+      <input type="email" id="signupEmail" placeholder="Email" required>
+      <input type="password" id="signupPassword" placeholder="Password (min 6 chars)" required minlength="6">
+      <button type="submit" class="btn-primary">Create Account</button>
+    </form>
+  </div>
+</div>
+
+<!-- ============ ORDER CONFIRMATION MODAL ============ -->
+<div class="modal-overlay" id="orderOverlay">
+  <div class="modal order-modal">
+    <button class="close-btn" id="closeOrderBtn">✕</button>
+    <div id="orderContent"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
